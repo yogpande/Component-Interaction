@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Car List</h2>
+  </div>
+  <div class="card-body">
+    <app-car-search 
+    [All]="GetAllCarCopunt()"
+     [Maruti]="GetMarutiCarCopunt()"
+      [Skoda]=" GetSkodaCarCopunt()" 
+      [Renault]="GetRenaultCarCopunt()" 
+      [Mahindara]="GetMahindraCarCopunt()"
+      (onRadioButtonValueChange)="GetValue($event)">
+      Loading
+    </app-car-search>
+    <br />
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>
+            CarID
+          </th>
+          <th>
+            Car Name
+          </th>
+          <th>
+            Company
+          </th>
+          <th>
+            Color
+          </th>
+          <th>
+            Price
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let car of cars">
+        <tr *ngIf="selectValue == 'All' || car.companyname == selectValue">
+          <td>
+            {{car.carid}}
+          </td>
+          <td>
+            {{car.carname}}
+          </td>
+          <td>
+            {{car.companyname}}
+          </td>
+          <td>
+            {{car.color}}
+          </td>
+          <td>
+            {{car.carprice}}
+          </td>
+        </tr>
+      </ng-container>
+      </tbody>
+
+    </table>
+  </div>
+  <div class="card-footer">
+    <h5 class="text-center">created by ravali samala</h5></div>
+   
+</div> <br/><br/>
